@@ -2,16 +2,20 @@ import turtle
 import random
 
 jared = turtle.Turtle()
+turtle.colormode(255)
 
-colors = ["red","orange","yellow","blue","indigo","violet","light blue","pink","brown"]
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0,255)
+    random_color = (r,g,b)
+    return random_color
 
-def draw_shape(num_sides):
-    angle = 360 / num_sides
-    for _ in range(num_sides):
-        
-        jared.forward(100)
-        jared.right(angle)
+directions = [0, 90, 180, 270]
+jared.pensize(15)
+jared.speed("fastest")
 
-for shape_side in range(3,15):
-    jared.color(random.choice(colors))
-    draw_shape(shape_side)
+for shape_side in range(500):
+    jared.color(random_color())
+    jared.forward(30)
+    jared.setheading(random.choice(directions))
