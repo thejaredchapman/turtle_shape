@@ -11,11 +11,17 @@ def random_color():
     random_color = (r,g,b)
     return random_color
 
-directions = [0, 90, 180, 270]
-jared.pensize(15)
 jared.speed("fastest")
 
-for shape_side in range(500):
-    jared.color(random_color())
-    jared.forward(30)
-    jared.setheading(random.choice(directions))
+def draw_spiograph(size_of_gap):
+    for _ in range(int(360 / size_of_gap)):
+        jared.color(random_color())
+        jared.circle(100)
+        jared.setheading(jared.heading() + size_of_gap)
+        jared.circle(100)
+
+draw_spiograph(5)
+
+
+screen = turtle.Screen()
+screen.exitonclick()
